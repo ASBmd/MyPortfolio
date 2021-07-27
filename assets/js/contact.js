@@ -19,21 +19,21 @@
 // Name validation
 function ValidattionForName(){
 	var namevalue=$('#name').val()
-	var letters = /^[-a-zA-Z-()]+(\s+[-a-zA-Z-()]+)*$/
+	var letters = /^[-a-zA-Z-()\s]+(\s+[-a-zA-Z-()\s]+)*$/
 	if(namevalue==""){
 		$("#validatename").html("kindly fill this field")
 		return false
 	}
-	else if(namevalue==" "){
-		$("#validatename").html("Do not enter space first")
-		return false
-	}
-	else if((namevalue.length <2 )|| (namevalue.length > 20))
-	{
+	// else if(namevalue==" "){
+	// 	$("#validatename").html("Do not enter space first")
+	// 	return false
+	// }
+	 else if (namevalue.length <=2 )
+	 {
 	     $("#validatename").html("name need atleast 3 character");
-	     return false;
+	      return false;
 	
-	}
+	 }
 	else if(namevalue.match(letters)){
 		$("#validatename").html("")
 		return true
@@ -48,12 +48,15 @@ function ValidattionForName(){
     
     function ValidattionForEmail(){
         var namevalue=$("#email").val()
-        var letters = /^[^]+@[^]+\.[a-z]{2,3}$/
+        var letters =/^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/
         if(namevalue==""){
             $("#validateemail").html("kindly fill this field")
             return false
         }
-       
+       // else if(namevalue==" "){
+           // $("#validateemail").html("do not put space first")
+          //  return false
+       // }
         
         else if(namevalue.match(letters)){
             $("#validateemail").html("")
